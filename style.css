@@ -835,3 +835,39 @@ p {
 .official-link:hover {
     transform: translateY(-2px);
 }
+footer {
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background: #050507;
+
+    border-top: 1px solid #1d1d25;
+}
+
+footer p {
+    margin: 0 0 15px;
+
+    font-size: 14px;
+
+    color: #666675;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #8f8f9c;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #c15cff;
+}
