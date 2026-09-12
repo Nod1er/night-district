@@ -1,4 +1,3 @@
-
 document.querySelectorAll(".custom-track").forEach((player) => {
 
     const audio = player.querySelector("audio");
@@ -8,6 +7,8 @@ document.querySelectorAll(".custom-track").forEach((player) => {
     const duration = player.querySelector(".duration");
 
     function formatTime(seconds) {
+        if (!isFinite(seconds)) return "0:00";
+
         const min = Math.floor(seconds / 60);
         const sec = Math.floor(seconds % 60)
             .toString()
@@ -20,17 +21,26 @@ document.querySelectorAll(".custom-track").forEach((player) => {
         duration.textContent = formatTime(audio.duration);
     });
 
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener("click", async () => {
 
         if (audio.paused) {
 
-            document.querySelectorAll("audio").forEach((otherAudio) => {
+            document.querySelectorAll(".custom-track").forEach((otherPlayer) => {
+                const otherAudio = otherPlayer.querySelector("audio");
+                const otherBtn = otherPlayer.querySelector(".play-btn");
+
                 if (otherAudio !== audio) {
                     otherAudio.pause();
+                    otherBtn.textContent = "▶";
                 }
             });
 
-            audio.play();
+            if (previewAudio && !previewAudio.paused) {
+                previewAudio.pause();
+                previewBtn.textContent = "▶ Preview";
+            }
+
+            await audio.play();
             playBtn.textContent = "❚❚";
 
         } else {
@@ -66,9 +76,12 @@ document.querySelectorAll(".custom-track").forEach((player) => {
     audio.addEventListener("ended", () => {
         playBtn.textContent = "▶";
         progress.value = 0;
+        currentTime.textContent = "0:00";
     });
 
 });
+
+
 const previewAudio = document.getElementById("preview-audio");
 const previewBtn = document.getElementById("preview-btn");
 
@@ -78,38 +91,22 @@ if (previewAudio && previewBtn) {
 
         if (previewAudio.paused) {
 
-            await previewAudio.play();
+            document.querySelectorAll(".custom-track").forEach((player) => {
+                const audio = player.querySelector("audio");
+                const button = player.querySelector(".play-btn");
 
+                audio.pause();
+                button.textContent = "▶";
+            });
+
+            await previewAudio.play();
             previewBtn.textContent = "❚❚ Pause";
 
         } else {
 
             previewAudio.pause();
-
             previewBtn.textContent = "▶ Preview";
 
-        }
-
-    });
-
-    previewAudio.addEventListener("ended", () => {
-        previewBtn.textContent = "▶ Preview";
-    });
-
-}
-const previewAudio = document.getElementById("preview-audio");
-const previewBtn = document.getElementById("preview-btn");
-
-if (previewAudio && previewBtn) {
-
-    previewBtn.addEventListener("click", async () => {
-
-        if (previewAudio.paused) {
-            await previewAudio.play();
-            previewBtn.textContent = "❚❚ Pause";
-        } else {
-            previewAudio.pause();
-            previewBtn.textContent = "▶ Preview";
         }
 
     });
