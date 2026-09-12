@@ -69,3 +69,31 @@ document.querySelectorAll(".custom-track").forEach((player) => {
     });
 
 });
+const previewAudio = document.getElementById("preview-audio");
+const previewBtn = document.getElementById("preview-btn");
+
+if (previewAudio && previewBtn) {
+
+    previewBtn.addEventListener("click", async () => {
+
+        if (previewAudio.paused) {
+
+            await previewAudio.play();
+
+            previewBtn.textContent = "❚❚ Pause";
+
+        } else {
+
+            previewAudio.pause();
+
+            previewBtn.textContent = "▶ Preview";
+
+        }
+
+    });
+
+    previewAudio.addEventListener("ended", () => {
+        previewBtn.textContent = "▶ Preview";
+    });
+
+}
