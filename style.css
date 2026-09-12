@@ -1,0 +1,277 @@
+body {
+    margin: 0;
+    background: #0a0a0a;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Меню */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 50px;
+
+    background: #111;
+}
+
+header h2 {
+    color: #ff004c;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    margin-left: 20px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff004c;
+}
+
+
+/* Главная страница */
+
+section {
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+#home {
+    min-height: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #050505,
+            #1a0010,
+            #050505
+        );
+
+    position: relative;
+}
+
+h1 {
+    font-size: 70px;
+
+    color: #ff004c;
+
+    text-transform: uppercase;
+
+    letter-spacing: 8px;
+
+    text-shadow:
+        0 0 10px #ff004c,
+        0 0 30px #ff004c,
+        0 0 60px #ff004c;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+p {
+    font-size: 18px;
+
+    color: #aaa;
+
+    max-width: 600px;
+
+    margin: 20px auto;
+}
+
+
+/* Кнопка */
+
+button {
+    background: #ff004c;
+
+    color: white;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    font-size: 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #cc003d;
+}
+
+
+/* Музыкальные карточки */
+
+.music-card {
+    background: #151515;
+
+    padding: 30px;
+
+    margin: 20px auto;
+
+    max-width: 400px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+.music-card:hover {
+    transform: scale(1.05);
+
+    background: #222;
+}
+.youtube-button {
+    display: inline-block;
+
+    background: #ff0000;
+
+    color: white;
+
+    padding: 15px 30px;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    border-radius: 8px;
+
+    margin-top: 20px;
+
+    transition: 0.3s;
+}
+
+.youtube-button:hover {
+    transform: scale(1.08);
+
+    background: #cc0000;
+}
+.tracks {
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #151515;
+
+    padding: 20px;
+
+    margin: 15px;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.track:hover {
+    transform: scale(1.03);
+
+    background: #222;
+}
+
+.track h3 {
+    margin: 0;
+}
+
+.track p {
+    margin: 5px 0;
+
+    font-size: 14px;
+}
+
+.play-button {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    font-size: 20px;
+}.listen-button {
+    display: inline-block;
+
+    background: #ff004c;
+
+    color: white;
+
+    padding: 16px 35px;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+
+    transition: 0.3s;
+}
+
+.listen-button:hover {
+    transform: scale(1.08);
+
+    background: #cc003d;
+}@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 38px;
+        letter-spacing: 3px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+
+    .track {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+}
