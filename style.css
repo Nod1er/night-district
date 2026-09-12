@@ -25,39 +25,54 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    padding: 18px 50px;
+    padding: 14px 32px;
 
-    background: rgba(8, 8, 12, 0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(7, 7, 10, 0.95);
+    backdrop-filter: blur(10px);
 
-    border-bottom: 1px solid #1d1d24;
+    border-bottom: 1px solid #1f1f28;
 }
 
-header h2 {
-    margin: 0;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    font-size: 22px;
-    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
 
-    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    box-shadow: 0 0 12px rgba(170, 70, 255, 0.45);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
 nav a {
-    color: #b8b8c2;
+    color: #bdbdc7;
     text-decoration: none;
-
-    margin-left: 28px;
 
     font-size: 15px;
 
-    transition: 0.25s;
+    transition: 0.2s;
 }
 
 nav a:hover {
-    color: #d86cff;
+    color: #d56cff;
 }
-
-
 /* SECTIONS */
 
 section {
