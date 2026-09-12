@@ -409,3 +409,24 @@ p {
 
     box-shadow: 0 0 15px rgba(170, 70, 255, 0.5);
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    display: block;
+}
