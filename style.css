@@ -523,4 +523,16 @@ p {
         width: 38px;
         height: 38px;
     }
+}#home h1 {
+    font-size: 42px;
+    letter-spacing: 4px;
+}
+
+.hero-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 15px;
 }
