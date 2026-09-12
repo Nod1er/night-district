@@ -87,29 +87,18 @@ section {
     min-height: 720px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    padding: 100px 20px;
 
     position: relative;
     overflow: hidden;
 
     background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(128, 0, 255, 0.20),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(255, 0, 100, 0.10),
-            transparent 30%
-        ),
-        linear-gradient(
-            180deg,
-            #09090d 0%,
-            #050507 100%
-        );
+        radial-gradient(circle at 50% 40%, rgba(140, 0, 255, 0.22), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(255, 0, 120, 0.10), transparent 30%),
+        linear-gradient(180deg, #08080d 0%, #050507 100%);
 }
 
 #home::before {
@@ -117,26 +106,95 @@ section {
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 520px;
+    height: 520px;
 
     border-radius: 50%;
 
-    background: rgba(139, 0, 255, 0.10);
+    background: rgba(140, 0, 255, 0.12);
 
     filter: blur(100px);
 
-    top: 80px;
+    top: 100px;
     left: 50%;
 
     transform: translateX(-50%);
 }
 
-#home > * {
+.hero-content {
     position: relative;
     z-index: 1;
+
+    max-width: 900px;
+
+    text-align: center;
 }
 
+.hero-label {
+    margin-bottom: 20px;
+
+    color: #b46cff;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+#home h1 {
+    margin: 0;
+
+    font-size: 78px;
+
+    color: white;
+
+    letter-spacing: 10px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 15px rgba(177, 72, 255, 0.55),
+        0 0 35px rgba(177, 72, 255, 0.30);
+}
+
+.hero-subtitle {
+    margin-top: 22px;
+
+    color: #9d9daa;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+}
+
+.listen-button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 16px 34px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #7a2cff, #c13cff);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    box-shadow: 0 0 25px rgba(163, 65, 255, 0.35);
+
+    transition: 0.25s;
+}
+
+.listen-button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow: 0 0 35px rgba(163, 65, 255, 0.55);
+}
 
 /* MAIN TITLE */
 
