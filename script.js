@@ -119,7 +119,7 @@ if (previewAudio && previewBtn) {
 
 
 // ===== Автоматические релизы с YouTube =====
-const YOUTUBE_API_KEY = "ВСТАВЬ_СЮДА_СВОЙ_КЛЮЧ";
+const YOUTUBE_API_KEY = "AIzaSyC9knv7OqsclQv-nLR158uup8hzcGwFojw";
 const YOUTUBE_HANDLE = "@night-district";
 const VIDEOS_COUNT = 6;
 
