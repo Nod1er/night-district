@@ -116,3 +116,84 @@ if (previewAudio && previewBtn) {
     });
 
 }
+
+
+// ===== Автоматические релизы с YouTube =====
+const YOUTUBE_API_KEY = "ВСТАВЬ_СЮДА_СВОЙ_КЛЮЧ";
+const YOUTUBE_HANDLE = "@night-district";
+const VIDEOS_COUNT = 6;
+
+async function loadYouTubeVideos() {
+  const container = document.getElementById("youtube-videos");
+
+  if (!container) return;
+
+  try {
+    // Находим канал и список его загрузок
+    const channelUrl =
+      "https://www.googleapis.com/youtube/v3/channels" +
+      "?part=contentDetails" +
+      "&forHandle=" + encodeURIComponent(YOUTUBE_HANDLE) +
+      "&key=" + YOUTUBE_API_KEY;
+
+    const channelResponse = await fetch(channelUrl);
+    const channelData = await channelResponse.json();
+
+    const uploadsPlaylistId =
+      channelData.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+
+    if (!uploadsPlaylistId) {
+      throw new Error("Канал Night District не найден");
+    }
+
+    // Загружаем последние опубликованные видео
+    const videosUrl =
+      "https://www.googleapis.com/youtube/v3/playlistItems" +
+      "?part=snippet,contentDetails" +
+      "&playlistId=" + uploadsPlaylistId +
+      "&maxResults=" + VIDEOS_COUNT +
+      "&key=" + YOUTUBE_API_KEY;
+
+    const videosResponse = await fetch(videosUrl);
+    const videosData = await videosResponse.json();
+
+    const videos = videosData.items || [];
+
+    if (!videos.length) {
+      container.innerHTML = "<p>На канале пока нет опубликованных видео.</p>";
+      return;
+    }
+
+    container.innerHTML = videos
+      .map((item) => {
+        const videoId = item.contentDetails.videoId;
+        const title = item.snippet.title;
+        const image =
+          item.snippet.thumbnails?.high?.url ||
+          item.snippet.thumbnails?.medium?.url;
+
+        return `
+          <article class="youtube-card">
+            <a
+              href="https://www.youtube.com/watch?v=${videoId}"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="${image}" alt="${title}">
+              <div class="youtube-card-content">
+                <span>▶ YouTube</span>
+                <h3>${title}</h3>
+              </div>
+            </a>
+          </article>
+        `;
+      })
+      .join("");
+  } catch (error) {
+    console.error("YouTube error:", error);
+    container.innerHTML =
+      "<p>Не удалось загрузить релизы. Попробуй позже.</p>";
+  }
+}
+
+loadYouTubeVideos();
