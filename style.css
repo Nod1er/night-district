@@ -955,3 +955,25 @@ footer p {
   font-size: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+.site-footer {
+  padding: 28px 20px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #8f8f9d;
+  text-align: center;
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 0 0 8px;
+}
+
+.site-footer a {
+  color: #b782ff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
